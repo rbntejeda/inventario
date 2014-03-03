@@ -34,6 +34,28 @@ class Products extends CI_Controller {
 		$this->load->view('include/footer');
 	}
 
+	function editProduct($idProducto)
+	{
+
+		if($this->input->post())
+		{
+			$data = array
+			(
+				'nombre' => $this->input->post('name'),
+				'codigo' => $this->input->post('codigo'),
+				'valor_neto' => $this->input->post('valor_neto'),
+				'descripcion' => $this->input->post('descripcion'),
+			);
+			$this->products_model->updateProduct($data,$idProducto);
+			redirect('Products/showProducts');
+		}
+		$data['product']=$this->products_model->getProduct($idProducto);
+		$this->load->view('include/header');
+		$this->load->view('form/editProduct',$data);
+		$this->load->view('include/footer');
+	}
+
+
 	function showProducts()
 	{
 		$data['products']=$this->products_model->getProducts();
@@ -41,6 +63,14 @@ class Products extends CI_Controller {
 		$this->load->view('show/showProducts',$data);
 		$this->load->view('include/footer');
 	}
+
+	function deleteProduct($idProduct)
+	{
+		$this->products_model->deleteProduct($idProduct);
+		redirect('Products/showProducts','refresh');
+	}
+
+
 
 	function registerStock()
 	{
@@ -56,7 +86,7 @@ class Products extends CI_Controller {
 			$this->products_model->newStockProduct($data);
 			redirect('Products/showRegisterStock','refresh');
 		}
-		$data['products']=$this->products_model->getProducts();
+		$data['products']=$this->products_model->getProducts_orderBy_codigo();
 		$this->load->view('include/header');
 		$this->load->view('form/registerStock',$data);
 		$this->load->view('include/footer');

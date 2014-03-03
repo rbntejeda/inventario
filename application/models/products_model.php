@@ -6,9 +6,36 @@ class products_model extends CI_Model
 		parent::__construct();
 	}
 
-	function getProducts()
+	function newProduct($data)
 	{
+		return $this->db->insert('productos',$data);
+	}
+
+	function getProducts()
+	{	
 		return $this->db->get('productos')->result();
+	}
+
+	function getProducts_orderBy_codigo()
+	{	
+		$this->db->order_by("codigo","asc");
+		return $this->db->get('productos')->result();
+	}
+
+	function getProduct($idProducto)
+	{
+		return $this->db->get_where('productos',array('idProducto' =>$idProducto))->row();
+	}
+
+	function deleteProduct($idProducto)
+	{
+	    $this->db->where('idProducto',$idProducto);
+    	return $this->db->delete('productos');
+	}
+
+	function newStockProduct($data)
+	{
+		return $this->db->insert('Stock',$data);
 	}
 
 	function getRegisterStock()
@@ -21,14 +48,10 @@ class products_model extends CI_Model
 		return $this->db->get('stock_total')->result();
 	}
 
-	function newProduct($data)
+	function updateProduct($data,$idProducto)
 	{
-		return $this->db->insert('productos',$data);
-	}
-
-	function newStockProduct($data)
-	{
-		return $this->db->insert('Stock',$data);
+	    $this->db->where('idProducto',$idProducto);
+		return $this->db->update('productos',$data);
 	}
 
 	function getRangoEstadisticoIngresoStock($inicio,$termino)

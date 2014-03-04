@@ -108,12 +108,12 @@ class Products extends CI_Controller {
 		$this->load->view('include/footer');
 	}
 
-	function showStatisticsProducts()
+	function showHistoryProducts()
 	{
 		if($this->input->post())
 		{
-			if($this->input->post('stock'))$data['products'] = $this->products_model->getRangoEstadisticoIngresoStock($data['inicio']=$this->input->post('inicio'),$data['termino']=$this->input->post('termino'));
-			if($this->input->post('ventas'))$data['ventas'] = $this->products_model->getRangoEstadisticoVentasStock($data['inicio']=$this->input->post('inicio'),$data['termino']=$this->input->post('termino'));
+			if($this->input->post('stock'))$data['products'] = $this->products_model->getRangoHistorialIngresoStock($data['inicio']=$this->input->post('inicio'),$data['termino']=$this->input->post('termino'));
+			if($this->input->post('ventas'))$data['ventas'] = $this->products_model->getRangoHistorialVentasStock($data['inicio']=$this->input->post('inicio'),$data['termino']=$this->input->post('termino'));
 			if(!$this->input->post('stock')&&!$this->input->post('ventas'))
 			{
 				$data['inicio']=$this->input->post('inicio');
@@ -128,7 +128,7 @@ class Products extends CI_Controller {
 		}
 
 		$this->load->view('include/header');
-		$this->load->view('show/showStatisticsProducts',$data);
+		$this->load->view('show/showHistoryProducts',$data);
 		$this->load->view('include/footer');
 	}
 

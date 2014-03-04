@@ -4,5 +4,5 @@
       <li><a href="<?php echo site_url("Products/showProducts"); ?>">Administrar Productos</a></li>
       <li><a href="<?php echo site_url("Products/showStock"); ?>">Stock de Productos</a></li>
       <li><a href="<?php echo site_url("Products/showRegisterStock"); ?>">Mostrar Registros de Sotck</a></li>
-      <li <?php if($menu=="showStatisticsProducts")echo 'class="active"'; ?>><a href="<?php echo site_url("Products/showStatisticsProducts"); ?>">Estadisticas de Productos</a></li>
+      <li <?php if($menu=="showHistoryProducts")echo 'class="active"'; ?>><a href="<?php echo site_url("Products/showHistoryProducts"); ?>">Historial de Productos</a></li>
     </ul>

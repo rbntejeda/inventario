@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-xs-12 col-sm-3 col-md-2">
   <?php
-    $data['menu']="showStatisticsProducts";
+    $data['menu']="showHistoryProducts";
     $this->load->view("include/menuProducts",$data); 
   ?>
   </div>
   <div class="col-xs-12 col-sm-9 col-md-9">
   <!-- formulario-->
- <?php echo form_open ('Products/showStatisticsProducts'); ?>
+ <?php echo form_open ('Products/showHistoryProducts'); ?>
   <form class="form-horizontal" role="form">
     <div class="form-group">
      <div class="input-group">

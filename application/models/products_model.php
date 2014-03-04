@@ -54,7 +54,7 @@ class products_model extends CI_Model
 		return $this->db->update('productos',$data);
 	}
 
-	function getRangoEstadisticoIngresoStock($inicio,$termino)
+	function getRangoHistorialIngresoStock($inicio,$termino)
 	{
 		return $this->db->query("
 			SELECT  p.codigo,p.nombre,sum(s.cantidad) AS stock_total
@@ -67,7 +67,7 @@ class products_model extends CI_Model
 		")->result();
 	}
 
-	function getRangoEstadisticoVentasStock($inicio,$termino)
+	function getRangoHistorialVentasStock($inicio,$termino)
 	{
 		return $this->db->query("
 			SELECT  p.codigo,p.nombre,sum(s.cantidad) AS stock_total

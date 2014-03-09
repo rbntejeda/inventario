@@ -12,7 +12,7 @@
 
   <form class="form-horizontal" role="form">
     <div class="form-group">
-      <input name="name" type="text" class="form-control" placeholder="Nombre de Cliente o Insitución" required autofocus>
+      <input name="name" type="text" class="form-control" placeholder="Nombre de Proveedor o Insitución" required autofocus>
     </div> 
     <div class="form-group">
       <input name="contacto" type="text" class="form-control" placeholder="Nombre de Contacto" >

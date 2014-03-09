@@ -13,7 +13,7 @@
       <input name="name" type="text" class="form-control" placeholder="Nombre Vendedor" required autofocus>
     </div>
     <div class="form-group">
-      <input name="rut" type="text" class="form-control" placeholder="Rut ej. 18123456-K" required>
+      <input name="rut" type="text" class="form-control" placeholder="Rut ej. 18123456K" required>
     </div>  
     <div class="form-group">
       <input name="telefono" type="text" class="form-control" placeholder="telefono" >

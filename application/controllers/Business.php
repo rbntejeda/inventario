@@ -1,24 +1,22 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Sellers extends CI_Controller {
-	#Contructor lo que comienza a cargar
-	function __construct(){
+class Business extends CI_Controller {
+	#Contructor "lo que comienza a cargar al principio"
+	function __construct()
+	{
 		parent::__construct();
 		$this->load->model('users_model');
-		$this->load->model('sellers_model');
-		$this->load->model('contacts_model');
 		$this->load->library('');
 		$this->load->helper('form');
 		//Debe estar logeado y ser Administrador
 		if(!$this->session->userdata('role'))redirect('Users/','refresh');
-		if(!$this->users_model->verifyLogged()||$this->session->userdata('role')!='admin')redirect('Users/','refresh');
-
+		if(!$this->users_model->verifyLogged())redirect('Users/','refresh');
 	}
 
-	function registerSeller()
+	function registerSupplier()
 	{
 		$this->load->view('include/header');
-		$this->load->view('form/registerSeller');
+		$this->load->view('form/registerSupplier');
 		$this->load->view('include/footer');
 
 		if($this->input->post())
@@ -41,18 +39,16 @@ class Sellers extends CI_Controller {
 		}
 	}
 
-	function showSellers()
+	function showSuppliers()
 	{
 		$this->load->view('include/header');
-		$data['sellers']=$this->sellers_model->getSellers();
-		$this->load->view('show/showSellers',$data);
+		$data['suppliers']=$this->suppliers_model->getSuppliers();
+		$this->load->view('show/showSuppliers',$data);
 		$this->load->view('include/footer');
 	}
 
-	function editSeller($idSeller)
-	{	
-		if (!$this->users_model->isLogged())redirect('/','refresh'); //Es nesesario que este loggeado para poder seguir
-		if($this->input->post())
+	function editSupplier($idSupplier)
+	{
 		{
 			$data = array
 			(
@@ -74,22 +70,10 @@ class Sellers extends CI_Controller {
 		$this->load->view('include/footer');
 	}
 
-	function deleteSeller($idSeller)
+	function deleteSupplier($idSeller)
 	{
 		$this->sellers_model->deleteSeller($idSeller);
 		redirect('Sellers/showSellers','refresh');
 	}
 
-	function showHistorySellers()
-	{
-		$this->load->view('include/header');
-		$data['sellers']=$this->sellers_model->getSellers();
-		foreach ($data['sellers'] as $seller) 
-		{
-			$contact["id_$seller->idVendedores"]=$this->sellers_model->getContactsSellers($seller->idVendedores);
-		}
-		$data['contacts']=$contact;
-		$this->load->view('show/showHistorySellers',$data);
-		$this->load->view('include/footer');
-	}
 }

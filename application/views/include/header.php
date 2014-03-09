@@ -31,20 +31,11 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="navbar-collapse button-accion-navbar collapse">
     <ul class="nav navbar-nav">
-      <li><a href="<?php echo site_url("Products/registerProduct"); ?>">Productos</a></li>
-      <li><a href="<?php echo site_url("Contacts/registerContact"); ?>">Vendedores</a></li>
-      <!--<li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="<?php echo site_url("Users/showUsers"); ?>">Administracion de Vendedores</a></li>
-          <li><a href="<?php echo site_url("Sellers/record_daily_contacts"); ?>">Resgistro de Contactos Diarios</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-          <li class="divider"></li>
-          <li><a href="#">One more separated link</a></li>
-        </ul>
-      </li>-->
+      <li <?php if (isset($menu))if($menu=="Products")echo 'class="active"'; ?>><a href="<?php echo site_url("Products/registerProduct"); ?>">Productos</a></li>
+      <li <?php if (isset($menu))if($menu=="Contacts")echo 'class="active"'; ?>><a href="<?php echo site_url("Contacts/registerContact"); ?>">Vendedores</a></li>
+      <li <?php if (isset($menu))if($menu=="Suppliers")echo 'class="active"'; ?>><a href="<?php echo site_url("Suppliers/registerSupplier"); ?>">Proveedores</a></li>
+      <li <?php if (isset($menu))if($menu=="Clients")echo 'class="active"'; ?>><a href="<?php echo site_url("Clients/registerClient"); ?>">Clientes</a></li>
+      <li <?php if (isset($menu))if($menu=="Business")echo 'class="active"'; ?>><a href="<?php echo site_url("Business/registerBusiness"); ?>">Ventas</a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">

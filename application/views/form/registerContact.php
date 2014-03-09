@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-xs-12 col-sm-3 col-md-2">
   <?php
@@ -26,7 +27,7 @@
       <input name="name" type="text" class="form-control" placeholder="Nombre o Institución" required autofocus>
     </div>
     <div class="form-group">
-      <input name="rut" type="text" class="form-control" placeholder="Rut ej. 18123456-K" required>
+      <input name="rut" id="rut" type="text" class="form-control" placeholder="Rut ej. 18123456-K" required>
     </div>
     <div class="form-group">
       <input name="direccion" type="text" class="form-control" placeholder="Dirección" required>

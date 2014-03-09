@@ -32,7 +32,7 @@ class Contacts extends CI_Controller {
 				'fecha_ingreso' => $this->input->post('fecha_ingreso')
 			);
 			$this->contacts_model->newContact($data);
-			redirect('Users/showUsers','refresh');
+			redirect('Contacts/showContacts','refresh');
 		}
 		$data['sellers']=$this->sellers_model->getlistSellers();
 		$this->load->view('include/header');

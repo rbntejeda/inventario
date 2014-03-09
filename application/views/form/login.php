@@ -40,22 +40,11 @@
 
  <?php echo form_open ('Users/index'); ?>
 <div class="container">
-
 <form class="form-signin" role="form">
         <h2 class="form-signin-heading">Iniciar Sesíon</h2>
-        <input name="username" type="text" class="form-control" placeholder="username" required autofocus>
+        <input name="username" type="text" class="form-control" placeholder="Nombre de Usuario" required autofocus>
         <input name="password" type="password" class="form-control" placeholder="contraseña" required>
-        <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Recuerdame
-
-        </label>
         <button class="btn btn-lg btn-primary btn-block" type="submit">ingresar</button>
-        <a class="text" href="<?php echo site_url("Users/register/"); ?>">no tienes cuenta,Registrate</a>
-
 </form>
-
-
-
-
 </div>
           <?php echo form_close(); ?>

@@ -6,14 +6,32 @@ class sellers_model extends CI_Model
 		parent::__construct();
 	}
 
+	function newSeller($data)
+	{
+		return $this->db->insert('vendedores',$data);
+	}
+
 	function getSellers()
 	{
 		return $this->db->get('vendedores')->result();
 	}
 
-	function newSeller($data)
+	function getSeller($idSeller)
 	{
-		return $this->db->insert('vendedores',$data);
+	    $this->db->where('idVendedores',$idSeller);
+	    return $this->db->get('vendedores')->row();
+	}
+
+	function updateSeller($data,$idSeller)
+	{
+	    $this->db->where('idVendedores',$idSeller);
+		return $this->db->update('vendedores',$data);
+	}
+
+	function deleteSeller($idSeller)
+	{
+	    $this->db->where('idVendedores',$idSeller);
+    	return $this->db->delete('vendedores');
 	}
 
     function validSeller($newSeller)
@@ -23,7 +41,6 @@ class sellers_model extends CI_Model
 	    );
 	    $query = $this->db->get_where('vendedores',$data);
 	    return $query->result_array();
-       
     }
 
     function getlistSellers()
@@ -31,24 +48,9 @@ class sellers_model extends CI_Model
     	return $this->db->get('lista_vendedores')->result();
     }
 
-	function updateSeller($data,$idSeller)
+	function getContactsSellers($idVendedores)
 	{
-	    $this->db->where('idVendedores',$idSeller);
-		return $this->db->update('vendedores',$data);
+		return $this->db->get_where('registros_contactos_diarios',array('Vendedores_idVendedores' => $idVendedores ))->result();
 	}
-
-	function getSeller($idSeller)
-	{
-	    $this->db->where('idVendedores',$idSeller);
-	    return $this->db->get('vendedores')->row();
-	}
-
-	function deleteSeller($idSeller)
-	{
-	    $this->db->where('idVendedores',$idSeller);
-    	return $this->db->delete('vendedores');
-	}
-
-
 
 }

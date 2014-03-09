@@ -1,10 +1,13 @@
-<ol class="breadcrumb">
-  <li><a href="#">Home</a></li>
-  <li><a href="<?php  echo site_url("Products/registerProduct");  ?>">Productos</a></li>
-  <li class="active">Registros de Stock</li>
-</ol>
-<div class="col-md-6 col-md-offset-3">
-	<table class="table table-bordered">
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-2">
+	 <?php
+	    $data['menu']="showRegisterStock";
+	    $this->load->view("include/menuProducts",$data); 
+	 ?>
+  </div>
+
+  <div class="col-xs-12 col-sm-9 col-md-10">
+  	<table class="table table-bordered">
 		<thead>
 			<tr>
 				<th>Cantidad</th>
@@ -27,4 +30,5 @@
 		<?php endforeach; ?>
 		</tbody>
 	</table>
+  </div>
 </div>
